@@ -25,14 +25,16 @@ As a casual eBay shopper, I can have access to the same quality items but at bet
 
 As a store owner, I can sell straight to the consumer rather than go through eBay so that I can save (and make) money.
 
-MVP Goals
+MVP Goals:
+
 Build a very basic e-commerce site to showcase designer items.
 
 Build show pages for each item.
 
 Allow user to buy items.
 
-Stretch Goals
+Stretch Goals:
+
 Incorporate a third party API from a site such as Square or Shopify for purchasing.
 
 Allow users to log into their accounts.

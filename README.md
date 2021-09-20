@@ -14,7 +14,6 @@ Check out my wireframes:
 
 ![image](https://user-images.githubusercontent.com/25629429/134082794-6fa21348-01d9-4b64-bc1b-15c4a6916771.png)
 
-![image](https://user-images.githubusercontent.com/25629429/134082837-9ed9b264-40a4-476f-9152-d4330020ce6b.png)
 
 User Stories:
 

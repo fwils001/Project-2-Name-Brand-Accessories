@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/items', (req, res) => {
-    res.render("index.ejs", {
+    res.render('index.ejs', {
         items: items
     })
 })
@@ -91,5 +91,3 @@ app.get('/items/:id/edit', (req, res) => {
 app.listen(3000, () => {
     console.log("Server is running on port 3000")
 })
-
-

@@ -86,7 +86,14 @@ app.get('/items/:id/edit', (req, res) => {
     res.redirect('/items')
   })
  
-
+  Item.find({}, (err, allItems) => {
+    if (err) {
+        console.log(err)
+        res.send(err)
+    } else {
+        res.render('index.ejs', {items: allItems})
+    }
+})
 
 app.listen(3000, () => {
     console.log("Server is running on port 3000")

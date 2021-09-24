@@ -1,0 +1,30 @@
+<%- include('./partials/header.ejs') %>
+
+<h1>Edit item</h1>
+
+<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+
+<form action="/items/<%=indexOfItemToDelete%>?_method=PUT" method="POST">
+    <fieldset>
+        
+      <label for="name">Name:</label>
+      <input id="name" type="text" name="name" value="<%=items.name%>"/>
+    
+      <label for="name">Image:</label>
+      <input id="name" type="text" name="name" value="<%=items.img%>"/>
+    
+      <label for="name">Color:</label>
+      <input id="name" type="text" name="name" value="<%=items.color%>"/>
+   
+      <label for="name">Description:</label>
+      <input id="name" type="text" name="name" value="<%=items.description%>"/>
+   
+      <label for="name">Price:</label>
+      <input id="name" type="text" name="name" value="<%=items.price%>"/>
+          
+    </fieldset>
+  
+    <button>Update the item</button>
+  </form>
+
+<%- include('./partials/footer.ejs') %>

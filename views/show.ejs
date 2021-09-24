@@ -1,12 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+
+<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+<h1><%=items.name%></h1>
+
+<img src= "<%=items.img%>"></img>
+
+<a href="/items">back</a>
+
+<form action="/items/<%= items %>?_method=DELETE" method="POST">
+    <button>Delete</button>
+</form>
+
+<a href="/items/<%= items %>/edit">(Edit)</a>
+
+<%- include('./partials/footer.ejs') %>

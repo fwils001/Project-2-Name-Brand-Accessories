@@ -1,0 +1,22 @@
+<%- include('./partials/header.ejs') %>
+    <h1>Add an item</h1>
+
+    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+   
+    <form method="POST" action="/items">
+        <fieldset>
+            <label for="name">Name:</label>
+            <input id="name" type="text" name="name" placeholder="Enter item name">
+            <label for="img">Image:</label>
+            <input id="name" type="text" name="name" placeholder="Enter item image">
+            <label for="color">Color:</label>
+            <input id="name" type="text" name="name" placeholder="Enter item color">
+            <label for="description">Description:</label>
+            <input id="name" type="text" name="name" placeholder="Enter description">
+            <br>
+            <label for="description">Price:</label>
+            <input id="name" type="text" name="name" placeholder="Enter price">
+        </fieldset>
+        <button>submit</button>
+    </form>
+<%- include('./partials/footer.ejs') %>

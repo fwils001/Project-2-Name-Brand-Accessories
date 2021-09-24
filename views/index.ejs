@@ -1,5 +1,6 @@
 <%- include('./partials/header.ejs') %>
 <head>
+    <h1>Flannery's Name Brand Accessories</h1>
     <nav>
             <a href="/items/new">| add item |</a>
 
@@ -10,14 +11,24 @@
 <link rel="stylesheet" type="text/css" href="/css/style.css"/>
 
 <body>
-    <a href="index/0"><img src="https://imgur.com/j1I7Krc.jpg"></a>
+    <div id="marc-jacobs"> 
+        <img id="marc" src="https://imgur.com/yzHdwTy.jpg">
+    </div>
 
     <ul class="items">
         <% for(let i = 0; i < items.length; i++) { %>
             <li>
                <a href="/items/<%= i %>"> <%=items[i].name%> </a>
-
-               <a href="/items/<%= items[i].id %>/edit">(Edit)</a>
+                <br>
+               <a href="/items/<%= i %>"> <%=items[i].img%> </a>
+               <br>
+               <a href="/items/<%= i %>"> <%=items[i].color%> </a>
+               <br>
+               <a href="/items/<%= i %>"> <%=items[i].description%> </a>
+               <br>
+               <a href="/items/<%= i %>"> <%=items[i].price%> </a>
+               <br>
+               <a href="/items/<%= i %>/edit">(Edit)</a>
 
                <form action="/items/<%= i %>?_method=DELETE" method="POST">
                 <button>Delete</button>

@@ -2,7 +2,14 @@
 <link rel="stylesheet" type="text/css" href="/css/style.css"/>
 <h1><%=items.name%></h1>
 
-<img src= "<%=items.img%>"></img>
+<img src= "<%=items.img%>">
+<p><%=items.description%></p>
+<p>PRICE: $<%=items.price%></p>
+
+
+<form action="/items/<%=items.id%>/buy?_method=PUT" method="POST">
+    <button>BUY</button>
+</form>
 
 <a href="/items">back</a>
 

@@ -43,54 +43,57 @@ router.get('/:id', (req, res) => {
 })
   
 router.post('/', (req, res) =>{
-
-    const itemToAdd = {
-        name: req.body.name,
-        img: req.body.img,
-        description: req.body.description,
-        price: req.body.price
-    }
-     items.push(itemToAdd)
-
-     res.redirect('/')
+    Item.create(req.body, (error, newItem)=>{
+        if (error){
+            res.send(error)
+        }
+        res.redirect('/items')
+    })
+     
  })
   
-router.delete('/', (req, res)=> {
-
-    const indexOfItemToDelete = items[req.params.id]
-
-     items.splice(indexOfItemToDelete, 1)
-
-     console.log(indexOfItemToDelete)
-
-     res.redirect('/items')
+router.delete('/:id', (req, res)=> {
+    Item.findByIdAndDelete(req.params.id, (error, deletedItem)=>{
+        if (error){
+            res.send(error)
+        }
+        res.redirect('/items')
+    })
    })
-
 
  router.get('/:id/edit', (req, res) => {
-     console.log(req.params.id)
-     const itemToEdit = items[req.params.id]
-     res.render('edit.ejs', {
-       name: req.params.id.name,
-       img: req.params.id.img,
-       items: itemToEdit,
-       indexOfItemToDelete: req.params.id
-      })
+    Item.findById(req.params.id, (error, foundItem)=>{
+        if (error){
+            res.send(error)
+        }
+        res.render('edit.ejs', {
+            items: foundItem,
+            indexOfItemToDelete: foundItem.id
+           })
+    })
    })
-
 
    router.put('/:id', (req, res) => {
-     const updatedItem = {
-       name: req.body.name
-
-     }
-     items[req.params.id] = updatedItem
-
-
-     res.redirect('/items')
+     Item.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, updatedItem)=>{
+         console.log("debug", req.body)
+        if (error){
+            res.send(error)
+        }
+        res.redirect('/items')
+     })
    })
 
-
-
+   router.put('/:id/buy', (req, res) => {
+       try{
+           Item.findByIdAndUpdate(req.params.id, {$inc:{qty: -1
+           }}, {new: true}, (err, updatedItem) => {
+               err ? res.send(err)
+               : res.redirect('/checkout/' + req.params.id)
+           })       
+        }
+        catch (err) {
+            res.send(err)
+        }
+    })
 
 module.exports = router;

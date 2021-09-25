@@ -84,16 +84,16 @@ router.delete('/:id', (req, res)=> {
    })
 
    router.put('/:id/buy', (req, res) => {
-       try{
-           Item.findByIdAndUpdate(req.params.id, {$inc:{qty: -1
-           }}, {new: true}, (err, updatedItem) => {
-               err ? res.send(err)
-               : res.redirect('/checkout/' + req.params.id)
-           })       
-        }
-        catch (err) {
-            res.send(err)
-        }
-    })
+    try{
+        Item.findByIdAndUpdate(req.params.id, {$inc:{qty: -1
+        }}, {new: true}, (err, updatedItem) => {
+            err ? res.send(err)
+            : res.render('checkout.ejs')
+        })       
+     }
+     catch (err) {
+         res.send(err)
+     }
+ })
 
 module.exports = router;

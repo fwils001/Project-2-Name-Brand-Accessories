@@ -7,6 +7,10 @@ h1 {
     text-align: center;
 }
 
-#marc-jacobs {
-    max-width: 25%
+#designers{
+    max-width: 750%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 14ch;
 }
+

@@ -1,6 +1,11 @@
 <%- include('./partials/header.ejs') %>
 <head>
     <h1>Flannery's Name Brand Accessories</h1>
+
+    <h2>I wear what I sell. I sell what I wear.</h2>
+
+    <p>Thank you for visiting my site! I have a nice collection of designer items for sale. Many of these items I purchased for myself. But, as we all know, people grow tired of wearing the same things over and over again. That's why I'm here now. I want to give you the pleasure of owning these beautiful items as well.</p>
+
     <nav>
             <a href="/items/new">| add item |</a>
 
@@ -21,19 +26,19 @@
     <ul class="items">
         <% for(let i = 0; i < items.length; i++) { %>
             <li>
-               <a href="/items/<%= i %>"> <%=items[i].name%> </a>
+               <a href="/items/<%= items[i].id %>"> <%=items[i].name%> </a>
                 <br>
-               <a href="/items/<%= i %>"> <%=items[i].img%> </a>
+               <a href="/items/<%= items[i].id %>"> <%=items[i].img%> </a>
                <br>
-               <a href="/items/<%= i %>"> <%=items[i].color%> </a>
+               <a href="/items/<%= items[i].id %>"> <%=items[i].color%> </a>
                <br>
-               <a href="/items/<%= i %>"> <%=items[i].description%> </a>
+               <a href="/items/<%= items[i].id %>"> <%=items[i].description%> </a>
                <br>
-               <a href="/items/<%= i %>"> <%=items[i].price%> </a>
+               <a href="/items/<%= items[i].id %>"> <%=items[i].price%> </a>
                <br>
-               <a href="/items/<%= i %>/edit">(Edit)</a>
+               <a href="/items/<%= items[i].id %>/edit">(Edit)</a>
 
-               <form action="/items/<%= i %>?_method=DELETE" method="POST">
+               <form action="/items/<%= items[i].id %>?_method=DELETE" method="POST">
                 <button>Delete</button>
               </form>
             </li>

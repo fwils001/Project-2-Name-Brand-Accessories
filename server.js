@@ -1,8 +1,24 @@
-
+  require("dotenv").config()
    const express = require('express')
    const app = express()
    const port = 3000
    const methodOverride = require('method-override')
+
+   const mongoose = require('mongoose')
+
+const mongoURI = process.env.MONGODB_URI
+
+const db = mongoose.connection
+
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}, () => {
+    console.log('database connected')
+})
+db.on('error', (err) => { console.log('ERROR: ', err) })
+db.on('connected', () => { console.log('mongo connected') })
+db.on('disconnected', () => { console.log('mongo disconnected')})
    
    app.use(methodOverride('_method'))
    
@@ -12,85 +28,10 @@
    
    app.use(express.urlencoded({extended: false}))
    
-   const items = require('./models/seed.js')
-   console.log(items)
+   const itemController = require('./controllers/itemController.js')
+   app.use('/items', itemController)
+
    
-   app.get('/', (req, res) => {
-    res.send(items)
-      }) 
-    
-    app.get('/items', (req, res) => {
-      res.render('index.ejs', {
-          items: items
-      })
-  })
-  
-  app.get('/items/new',(req, res) => {
-    res.render('new.ejs')
-  })
-  
-  app.get('/items/:id', (req, res) => {
-    // console.log(items[req.params.id])
-    console.log(items)
-    res.render("show.ejs", {
-        items: items[req.params.id],
-        itemId: req.params.id
-
-    })
-})
-  
-  app.post('/items', (req, res) =>{
-
-    const itemToAdd = {
-        name: req.body.name,
-        img: req.body.img,
-        description: req.body.description,
-        price: req.body.price
-    }
-     items.push(itemToAdd)
-
-     res.redirect('/items')
- })
-  
-  app.delete('/items/:id', (req, res)=> {
-
-    const indexOfItemToDelete = items[req.params.id]
-
-     items.splice(indexOfItemToDelete, 1)
-
-     console.log(indexOfItemToDelete)
-
-     res.redirect('/items')
-   })
-
-
- app.get('/items/:id/edit', (req, res) => {
-     console.log(req.params.id)
-     const itemToEdit = items[req.params.id]
-     res.render('edit.ejs', {
-       name: req.params.id.name,
-       img: req.params.id.img,
-       items: itemToEdit,
-       indexOfItemToDelete: req.params.id
-      })
-   })
-
-  app.get('/items/welcome', (req, res) => {
-    res.render('create.ejs')
-  })
-
-   app.put('/items/:id', (req, res) => {
-     const updatedItem = {
-       name: req.body.name
-
-     }
-     items[req.params.id] = updatedItem
-
-
-     res.redirect('/items')
-   })
-
-
 app.listen(3000, () => {
  console.log("Server is running on port 3000")
 }) 

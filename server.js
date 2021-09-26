@@ -1,4 +1,5 @@
   require("dotenv").config()
+  const session = require('express-session')
    const express = require('express')
    const app = express()
    const port = 3000
@@ -28,9 +29,19 @@ db.on('disconnected', () => { console.log('mongo disconnected')})
    
    app.use(express.urlencoded({extended:true }))
 
-   require('dotenv').config();
+   app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+  }))
+
+   app.use((req, res, next) => {
+    console.log("Here is the session in the custom app-level middleware.")
+    console.log(req.session)
+    next()
+  })
    
-   
+
    const itemController = require('./controllers/itemController.js')
     app.use('/items', itemController)
 

@@ -21,6 +21,8 @@ router.post('/register', (req, res) => {
 			res.send('That username is taken!')
 		} else {
 			User.create(req.body, (error, createdUser) => {
+                req.session.loggedIn=true
+                console.log(req.session.loggedIn)
 				res.send('user created')
 			})
 		}
@@ -40,7 +42,8 @@ router.post('/signin', (req, res) => {
 			
 			if (validLogin) {
 				req.session.currentUser = foundUser
-				
+				req.session.loggedIn = true
+                console.log(req.session.loggedIn)
 				res.send('User logged in!')
 			} else {
 				

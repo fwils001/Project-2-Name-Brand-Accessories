@@ -61,25 +61,35 @@ router.post('/', (req, res) =>{
  })
   
 router.delete('/:id', (req, res)=> {
-    Item.findByIdAndDelete(req.params.id, (error, deletedItem)=>{
-        if (error){
-            res.send(error)
-        }
-        res.redirect('/items')
-    })
+    console.log(`HERE IS REQ.SESSION.LOGGEDIN: ${req.session.loggedIn}`)
+    if(req.session.loggedIn) {
+        Item.findByIdAndDelete(req.params.id, (error, deletedItem)=>{
+            if (error){
+                res.send(error)
+            }
+            res.redirect('/items')
+        })
+    } else {
+        res.send("YOU NEED TO BE LOGGED IN TO DO THAT.")
+    }
    })
 
- router.get('/:id/edit', (req, res) => {
-    Item.findById(req.params.id, (error, foundItem)=>{
-        if (error){
-            res.send(error)
-        }
-        res.render('edit.ejs', {
-            items: foundItem,
-            indexOfItemToDelete: foundItem.id
-           })
-    })
-   })
+   router.get('/:id/edit', (req, res) => {
+	console.log(`HERE IS REQ.SESSION.LOGGEDIN: ${req.session.loggedIn}`)
+	if(req.session.loggedIn) {
+		Item.findById(req.params.id, (error, foundItem)=>{
+			if (error){
+				res.send(error)
+			}
+			res.render('edit.ejs', {
+				items: foundItem,
+				indexOfItemToDelete: foundItem.id
+			})
+		 })
+	 } else {
+		 res.send("YOU NEED TO BE LOGGED IN TO DO THAT.")
+	 }
+})
 
    router.put('/:id', (req, res) => {
      Item.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, updatedItem)=>{

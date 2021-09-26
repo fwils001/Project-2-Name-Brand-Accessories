@@ -10,7 +10,7 @@ module.exports = [
         name: "Mark Cross Handbag",
         img: "https://imgur.com/GZh9QZw.jpg",
         color: "white",
-        description: "Vintage Mark Cross Handbag. Excellent condition.",
+        description: "Vintage Mark Cross Handbag.jpg. Excellent condition.",
         price: 45
     },
     {   name: "Chloe Sunglasses",

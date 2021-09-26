@@ -36,3 +36,7 @@ ul {
 #buy {
     text-align: center;
 }
+
+#show {
+   max-width: 100%
+}

@@ -23,14 +23,14 @@ module.exports = [
         name: "Balmain Sandals",
         img: "https://imgur.com/cPAUmvz.jpg",
         color: "blue",
-        description: "Elegant Balmain Sandals. Like new condition.",
+        description: "Elegant Balmain Sandals. Like new condition. Size 8.5.",
         price: 55
     },
     {
         name: "Jimmy Choo Flats",
         img: "https://imgur.com/e730crp.jpg",
         color: "gold",
-        description: "Pretty Jimmy Choo Flats. Some wear. Overall good condition.",
+        description: "Pretty Jimmy Choo Flats. Some wear. Overall good condition. Size 7.5",
         price: 65
     }
       

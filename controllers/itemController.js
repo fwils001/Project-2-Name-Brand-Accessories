@@ -5,7 +5,15 @@ const itemSeed = require("../models/seed.js")
 // router.get('/', (req, res) => {
 //     res.send(items)
 //       }) 
-    
+const authRequired = (req, res, next) => {
+	if (req.session.currentUser) {
+		next()
+		
+	} else {
+		
+		res.send('You must be logged in to do that!')
+	}
+}
 router.get('/', (req, res) => {
     Item.find({},(error, items)=>{
         if (error){

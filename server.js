@@ -2,9 +2,9 @@
    const express = require('express')
    const app = express()
    const port = 3000
-   const methodOverride = require('method-override')
+const methodOverride = require('method-override')
 
-   const mongoose = require('mongoose')
+const mongoose = require('mongoose')
 
 const mongoURI = process.env.MONGODB_URI
 
@@ -26,12 +26,18 @@ db.on('disconnected', () => { console.log('mongo disconnected')})
 
    app.use(express.json())
    
-   app.use(express.urlencoded({extended: false}))
+   app.use(express.urlencoded({extended:true }))
+
+   require('dotenv').config();
+   
    
    const itemController = require('./controllers/itemController.js')
-   app.use('/items', itemController)
+    app.use('/items', itemController)
 
-   
+    const userController = require('./controllers/userController')
+    app.use('/users', userController)
+
+
 app.listen(3000, () => {
  console.log("Server is running on port 3000")
 }) 

@@ -1,16 +1,38 @@
-img {
-    max-width: 100%;
-    padding: 10px;
+
+body {
+    background-color: pink;
 }
 
 h1 {
     text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #designers{
-    max-width: 750%;
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: 14ch;
+    margin-left: 250px;
+    margin-right: auto
 }
 
+#ebay-store {
+    width: 30%;
+}
+
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    margin-right: 300px;
+    margin-left: 300px;
+}
+
+ul {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#buy {
+    text-align: center;
+}

@@ -1,12 +1,21 @@
 # Project-2-Name-Brand-Accessories
 
-This is my e-commerce site that is an extension of my eBay store. I already have 235 positive reviews, I have 54 followers, and I have been selling on the site since 2000. I wanted a place to sell my items without having to take a loss on my profits anymore by being forced to use eBay as the middle man.
+Welcome! This is my e-commerce site that is an extension of my eBay store. I already have nearly 300 positive reviews, I have 54 followers, and I have been selling on the site since 2000. I wanted a place to sell my items without having to take a loss on my profits anymore by being forced to use eBay as the middle man.
 
-This app has a models folder with the information stored in an accessories.js file. There is also an index page, a show page for each item, and a checkout page for the buyer. Items are edited by me in the database directly. I also have a views folder with index.ejs and show.ejs.
+I have a models folder with the information stored in an seed.js file. There is an index page, a show page for each item, and a checkout page for the buyer. The site does allow customers to create accounts so that they can log in with a password each time, but they need to know the URL to do so. As an administrator, I have the ultimate ability to manage the listings.
 
-Index route: /accessories
-Show page: /accessories/:id
-Checkout page: /accessories/checkout
+I also have a views folder with index.ejs and show.ejs. The models directory has an items.ejs file.
+
+Index route: GET /accessories/ allows users to see the items for sale on the landing page.
+Show page: GET /accessories/:id allows users to see the product from different angles and purchase.
+Checkout page: PUT /accessories/checkout allows users to purchase item.
+Edit page: POST /accessories/edit allows me to edit the item.
+Create page: POST/accessories/new allows me to add a new item.
+Delete page: POST/accessories/delete allows me to delete an item.
+
+I also use a controllers folder through which the routes are forwarded.
+
+I integrated the Buy button through Paypal on my checkout page.
 
 Check out my wireframes:
 
@@ -35,6 +44,4 @@ Allow user to buy items.
 
 Stretch Goals:
 
-Incorporate a third party API from a site such as Square or Shopify for purchasing.
-
-Allow users to log into their accounts.
+I accomplished my stretch goal which was to allow users to log into their accounts.

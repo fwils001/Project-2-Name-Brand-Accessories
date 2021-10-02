@@ -2,7 +2,7 @@
   const session = require('express-session')
    const express = require('express')
    const app = express()
-   const port = 3000
+   const PORT = process.env.PORT
 const methodOverride = require('method-override')
 
 const mongoose = require('mongoose')
@@ -51,6 +51,6 @@ db.on('disconnected', () => { console.log('mongo disconnected')})
     app.use('/users', userController)
 
 
-app.listen(3000, () => {
- console.log("Server is running on port 3000")
+app.listen(PORT, () => {
+ console.log(`Server is running on port: ${PORT}`)
 }) 

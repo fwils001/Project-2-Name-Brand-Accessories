@@ -13,9 +13,11 @@ const db = mongoose.connection
 
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
-}, () => {
-    console.log('database connected')
+  useUnifiedTopology: true,
+}).then(()=> {
+  console.log("Connected")
+}).catch((error)=> {
+console.log(error)
 })
 db.on('error', (err) => { console.log('ERROR: ', err) })
 db.on('connected', () => { console.log('mongo connected') })

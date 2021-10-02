@@ -10,9 +10,10 @@ h1 {
 }
 
 #designer{
-    width: 100%;
-    height: 100%;
-}
+    width: auto ;
+    max-width: 100% ;
+    height: auto ;
+      }
 
 #ebay-store {
     width: 10%;

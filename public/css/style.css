@@ -1,4 +1,5 @@
 
+
 body {
     background-color: pink;
 }
@@ -10,15 +11,16 @@ h1 {
 }
 
 #designer{
-   width: 100%;
-   height: 100%
+   width: 90%;
+   height: 90%;
+   margin-left: 55px
 }
 
 
 #ebay-store {
     width: 10%;
     margin-right: 250px;
-    margin-left: 600px;
+    margin-left: 500px;
 }
 
 h2 {

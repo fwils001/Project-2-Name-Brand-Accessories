@@ -7,19 +7,6 @@ module.exports = [
         price: 89
     },
     {
-        name: "Mark Cross Handbag",
-        img: "https://imgur.com/GZh9QZw.jpg",
-        color: "white",
-        description: "Vintage Mark Cross Handbag.jpg. Excellent condition.",
-        price: 45
-    },
-    {   name: "Chloe Sunglasses",
-        img: "https://imgur.com/TwZLAQM.jpg",
-        color: "brown",
-        description: "Gorgeous Chloe Sunglasses. One arm has been repaired. No scratches.",
-        price: 35
-    }, 
-    {
         name: "Balmain Sandals",
         img: "https://imgur.com/cPAUmvz.jpg",
         color: "blue",

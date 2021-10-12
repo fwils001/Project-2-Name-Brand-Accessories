@@ -32,6 +32,13 @@ module.exports = [
         color: "gold",
         description: "Pretty Jimmy Choo Flats. Some wear. Overall good condition. Size 7.5",
         price: 65
+    },
+    {
+        name: "North Face Jacket",
+        img: "https://imgur.com/6wI17cG.jpg",
+        color: "black and blue",
+        description: "Women's small size (boys XL) Northface Jacket. Unworn.",
+        price: 25
     }
       
 ]
